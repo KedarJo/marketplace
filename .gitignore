@@ -1,0 +1,24 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+
+# testing
+coverage
+
+# production
+build
+build_webpack
+img
+dist
+
+
+# misc
+.DS_Store
+.env
+npm-debug.log
+.truffle-solidity-loader
+ganach-cli.txt
+tmp-42679sEUKlpV5j0Nu
+box-img-lg.png
+box-img-sm.png
