@@ -35,4 +35,5 @@ npm run start
 ```
 
 The default account[0] is used to deploy the contract and at the contract constructor level gets the role of owner as well as Admin. If the local server starts serving without changes to MetaMask accounts, the default login mode is admin and all admin functions should be available on the menu.  
+
 ---
