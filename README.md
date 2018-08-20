@@ -1,6 +1,8 @@
 MarketPlace - Contract to support decentralized marketplace
 ===========================================================
 
+Please refer to the [Wiki](https://github.com/KedarJo/marketplace/wiki) for supported use cases 
+
 **Local instance**
 
 The project is built from React Truffle Box and inherits all node and css dependencies. The emphasis is to built UI sufficient to support use cases to test out the contract.
@@ -29,11 +31,24 @@ $ ganache-cli or $ ganache-cli -seed "your seed phrase"
 $ truffle compile
 $ truffle migrate or truffle migrate --reset
 ```
-12. Start local npm server
+12. Execute tests as follows
+```
+$ truffle test marketplaceRBAC.js
+$ truffle test marketplaceStoreOwner.js
+$ truffle test marketplaceSKU.js
+$ truffle test marketplacePurchase.js
+
+```
+
+13. Start local npm server to access contract with React GUI
 ```
 npm run start
 ```
 
 The default account[0] is used to deploy the contract and at the contract constructor level gets the role of owner as well as Admin. If the local server starts serving without changes to MetaMask accounts, the default login mode is admin and all admin functions should be available on the menu.  
+
+---
+
+Note: WIP for deploying to rinkeby and hosting completely from IPFS. This file will be updated as this is made available.
 
 ---
