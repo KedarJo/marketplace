@@ -10,6 +10,6 @@ The project is built from React Truffle Box and inherits all node and css depend
 3. This also has instruction for Truffle installation (if required) and unboxing
 4. Remove the base Storage contract and the associated test solidity files
 5. Clone this repository into a temp repository
-'''
+```
 $git clone https://github.com/KedarJo/marketplace
-'''
+```
