@@ -1,7 +1,7 @@
 MarketPlace - Contract to support decentralized marketplace
 ===========================================================
 
-Please refer to the [Wiki](https://github.com/KedarJo/marketplace/wiki) for supported use cases 
+Please refer to the [Wiki](https://github.com/KedarJo/marketplace/wiki) for supported use cases
 
 **Local instance**
 
@@ -33,12 +33,13 @@ $ truffle migrate or truffle migrate --reset
 ```
 12. Execute tests as follows
 ```
-$ truffle test marketplaceRBAC.js
-$ truffle test marketplaceStoreOwner.js
-$ truffle test marketplaceSKU.js
-$ truffle test marketplacePurchase.js
+$ truffle test test/marketplaceRBAC.js
+$ truffle test test/marketplaceStoreOwner.js
+$ truffle test test/marketplaceSKU.js
+$ truffle test test/marketplacePurchase.js
 
 ```
+Test files have description of what they test. Certain tests are designed to fail with VM Exceptions. On Certain tests the assets are merely to conclude the test. Results are console-logged and should indicate the behavior.
 
 13. Start local npm server to access contract with React GUI
 ```

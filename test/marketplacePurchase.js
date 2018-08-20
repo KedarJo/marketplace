@@ -1,6 +1,6 @@
 /**
 * @author: Kedar Joshi
-* @dev: Tests possible actions StoreOwner can take
+* @dev: Tests possible actions Customer can take
 * We plan: account[0] thru [2] to be Admin or Superuser
 *        : account[3] thru [5] to be Storeowner
 *        : account[6] thru [9] to be Customer

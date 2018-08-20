@@ -5,6 +5,7 @@ node_modules
 
 # testing
 coverage
+test/marketplaceOnline.js
 
 # production
 build
