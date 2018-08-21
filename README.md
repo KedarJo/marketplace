@@ -5,7 +5,7 @@ Please refer to the [Wiki](https://github.com/KedarJo/marketplace/wiki) for supp
 
 **Local instance**
 
-The project is built from React Truffle Box and inherits all node and css dependencies. The emphasis is to built UI sufficient to support use cases to test out the contract.
+The project is built from React Truffle Box and inherits all node and css dependencies. The emphasis is to built UI sufficient to support use cases to test out the contract. Works best with Chrome. 
 
 1. Build a new project folder for MarketPlace
 2. Download the React Truffle Box: [React Box](https://truffleframework.com/boxes/react)
