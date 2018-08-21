@@ -39,7 +39,7 @@ $ truffle test test/marketplaceSKU.js
 $ truffle test test/marketplacePurchase.js
 
 ```
-Test files have description of what they test. Certain tests are designed to fail with VM Exceptions. On Certain tests the assets are merely to conclude the test. Results are console-logged and should indicate the behavior.
+Test files have description of what they test. Certain tests are designed to fail with VM Exceptions. On Certain tests the asserts are merely to conclude the test. Results are console-logged and indicate the expected behavior.
 
 13. Start local npm server to access contract with React GUI
 ```
@@ -50,6 +50,6 @@ The default account[0] is used to deploy the contract and at the contract constr
 
 ---
 
-Note: WIP for deploying to rinkeby and hosting completely from IPFS. This file will be updated as this is made available.
+Note: WIP for deploying to Rinkeby and hosting completely from IPFS. This file will be updated as this is made available.
 
 ---
