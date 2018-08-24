@@ -1,7 +1,8 @@
 MarketPlace - Contract to support decentralized marketplace
 ===========================================================
 
-Please refer to the [Wiki](https://github.com/KedarJo/marketplace/wiki) for supported use cases
+Please refer to the [Wiki](https://github.com/KedarJo/marketplace/wiki) for supported use cases.
+Please refer to the [Steps to Follow](https://github.com/KedarJo/marketplace/wiki/Steps-for-running-application) as step-by-step guide 
 
 **Local instance**
 
