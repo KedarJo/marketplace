@@ -89,7 +89,7 @@ $ ipfs add -r build_webpack/
 $ ipfs name publish <ipfs hash of build_webpack>
 ```
 
-6. Once the publish is successful (usually takes a few secs) access application https://gateway.ipfs.io/ipfs/<ipfs hash of build_webpack>
+6. Once the publish is successful (usually takes a few secs) access application https://gateway.ipfs.io/ipfs/ <ipfs hash of build_webpack>
 
 
 ---
