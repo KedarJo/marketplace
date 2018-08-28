@@ -3,21 +3,19 @@ import CusItemGrid from './CusItemGrid'
 //import '../css/pure-min.css'
 
 
-class CusStoreDetail extends Component {
-
-    render() {
+//class CusStoreDetail extends Component {
+//    render() {}
+function CusStoreDetail (props) {
       return (
         <div>
-          <h2>{this.props.store.title}</h2>
-
+          <h2>{props.store.title}</h2>
           <br/>
-
           <CusItemGrid
-          skus={this.props.skus}
-          action={this.props.handleCusItemClick} />
+          skus={props.skus}
+          action={props.handleCusItemClick} />
         </div>
       )
-    }
+
   }
 
   export default CusStoreDetail

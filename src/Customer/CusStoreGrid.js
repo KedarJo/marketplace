@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 //import '../css/pure-min.css'
 
-class CusStoreGridRow extends Component {
-  render() {
+//class CusStoreGridRow extends Component {
+//  render() {}
     //console.log('CusStoreGridRow')
-    const store = JSON.parse(this.props.store)
+function CusStoreGridRow (props) {
+    const store = JSON.parse(props.store)
 
     return(
       <div className="col-sm-4">
@@ -13,44 +14,38 @@ class CusStoreGridRow extends Component {
         <div className="card-body">
         <img className="card-img-top" src={`https://ipfs.io/ipfs/${store.imgIPFS}`} alt={`Image for ${store.title}`}/>
         <span>{store.numItems} items </span><br/>
-        <button className="btn btn-light" onClick={(e) => this.props.action(store.storeID)}>More</button>
+        <button className="btn btn-light" onClick={(e) => props.action(store.storeID)}>More</button>
         </div>
       </div>
       </div>
 
     )
-  }
 }
 
-class CusStoreGrid extends Component {
-
-    render() {
+//class CusStoreGrid extends Component {
+//    render() {
+function CusStoreGrid (props) {
       const rows = []
-      if (this.props.stores.length !== 0) {
-        this.props.stores.forEach((store) => {
+      if (props.stores.length !== 0) {
+          props.stores.forEach((store) => {
           //console.log('Filling rows')
           rows.push(
             <CusStoreGridRow
             store={JSON.stringify(store)}
             key={store.storeID}
-            action={this.props.action} />
+            action={props.action} />
           )
         })
       }
 
-
       return (
         <div className="row">
-
-          {this.props.stores.length !== 0
+          {props.stores.length !== 0
             ? rows
             :<p></p>
           }
-
         </div>
-
       )
-    }
   }
 
   /*

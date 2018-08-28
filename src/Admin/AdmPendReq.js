@@ -2,9 +2,10 @@ import React, { Component } from 'react'
 //import '../css/pure-min.css'
 
 
-class AdmPendReqRow extends Component {
-  render() {
-    const account = JSON.parse(this.props.account)
+//class AdmPendReqRow extends Component {
+//  render() {}
+function AdmPendReqRow (props) {
+    const account = JSON.parse(props.account)
 
     return(
         <tr>
@@ -14,27 +15,26 @@ class AdmPendReqRow extends Component {
           <td>{account.numStores}</td>
           <td><button
             className="btn btn-secondary"
-            onClick={() => this.props.action(account.acct, true)}>Approve</button></td>
+            onClick={() => props.action(account.acct, true)}>Approve</button></td>
           <td><button
             className="btn btn-secondary"
-            onClick={() => this.props.action(account.acct, false)}>Deny</button></td>
+            onClick={() => props.action(account.acct, false)}>Deny</button></td>
         </tr>
     )
 
-  }
 }
 
-class AdmPendReq extends Component {
-
-  render() {
+//class AdmPendReq extends Component {
+//  render() {}
+function AdmPendReq (props) {
     const rows = [];
-    if (this.props.pendAccount.length !== 0) {
-      this.props.pendAccount.forEach((account) => {
+    if (props.pendAccount.length !== 0) {
+        props.pendAccount.forEach((account) => {
         rows.push(
           <AdmPendReqRow
           account={JSON.stringify(account)}
           key={account.govID}
-          action={this.props.action}/>
+          action={props.action}/>
         )
       })
     }
@@ -52,7 +52,7 @@ class AdmPendReq extends Component {
           </tr>
         </thead>
         <tbody>
-          { this.props.pendAccount.length !== 0
+          { props.pendAccount.length !== 0
             ? rows
             :
              <tr >
@@ -67,7 +67,6 @@ class AdmPendReq extends Component {
         </tbody>
       </table>
     )
-  }
 }
 
 

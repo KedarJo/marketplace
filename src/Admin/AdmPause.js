@@ -1,22 +1,21 @@
 import React, { Component } from 'react'
 
 
-class AdmPause extends Component {
-
-  render() {
+//class AdmPause extends Component {
+//  render() {}
+function AdmPause (props) {
     return (
       <div>
-      {this.props.paused
+      {props.paused
         ? <button
           className="btn btn-primary"
-          onClick={() => this.props.action()}>Unpause Contract</button>
+          onClick={() => props.action()}>Unpause Contract</button>
         : <button
           className="btn btn-primary"
-          onClick={() => this.props.action()}>Pause Contract</button>
+          onClick={() => props.action()}>Pause Contract</button>
       }
       </div>
     )
-  }
 }
 
 export default AdmPause

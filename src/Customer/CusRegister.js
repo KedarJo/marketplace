@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 //import '../css/pure-min.css'
 
-
 class CusRegister extends Component {
-
   render() {
+
     return (
       <form
       id="CustomerRegistration"

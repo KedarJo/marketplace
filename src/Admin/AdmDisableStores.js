@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 //import '../css/pure-min.css'
 
-class AdmDisableStoreRow extends Component {
-  render() {
-    const account = JSON.parse(this.props.account)
+//class AdmDisableStoreRow extends Component {
+//  render() {}
+function AdmDisableStoreRow (props) {
+    const account = JSON.parse(props.account)
 
     return(
         <tr>
@@ -13,26 +14,24 @@ class AdmDisableStoreRow extends Component {
           <td>{account.numStores}</td>
           <td><button
             className="btn btn-secondary"
-            onClick={() => this.props.action(account.acct)}>Disable</button></td>
+            onClick={() => props.action(account.acct)}>Disable</button></td>
         </tr>
     )
-  }
+
 }
 
-
-
-class AdmDisableStores extends Component {
-
-  render() {
+//class AdmDisableStores extends Component {
+//  render() {}
+function AdmDisableStores (props) {
     const rows = [];
-    if (this.props.storeOwners.length !== 0) {
-      this.props.storeOwners.forEach((account) => {
+    if (props.storeOwners.length !== 0) {
+        props.storeOwners.forEach((account) => {
 
         rows.push(
           <AdmDisableStoreRow
           account={JSON.stringify(account)}
           key={account.acct}
-          action={this.props.action} />
+          action={props.action} />
         )
       })
     }
@@ -49,7 +48,7 @@ class AdmDisableStores extends Component {
           </tr>
         </thead>
         <tbody>
-          { this.props.storeOwners.length !== 0
+          { props.storeOwners.length !== 0
             ?  rows
              :
                <tr>
@@ -63,7 +62,6 @@ class AdmDisableStores extends Component {
         </tbody>
       </table>
     )
-  }
 }
 
 export default AdmDisableStores

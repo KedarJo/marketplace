@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 //import '../css/pure-min.css'
 
-class AdmPayStoreRow extends Component {
-  render() {
-    const store = JSON.parse(this.props.store)
+//class AdmPayStoreRow extends Component {
+//  render() {}
+function AdmPayStoreRow (props) {
+    const store = JSON.parse(props.store)
 
     return(
         <tr>
@@ -13,33 +14,32 @@ class AdmPayStoreRow extends Component {
           <td>{store.storeBal}</td>
           <td><button
             className="btn btn-secondary"
-            onClick={() => this.props.action(store.storeID)}>Pay</button></td>
+            onClick={() => props.action(store.storeID)}>Pay</button></td>
         </tr>
     )
-  }
 }
 
-class AdmPayStore extends Component {
-
-  render() {
+//class AdmPayStore extends Component {
+//  render() {}
+function AdmPayStore (props) {
     //console.log('AdmPayStore/render')
     const rows = [];
 
-    if (this.props.stores.length !== 0) {
-      this.props.stores.forEach((store) => {
+    if (props.stores.length !== 0) {
+        props.stores.forEach((store) => {
 
         rows.push(
           <AdmPayStoreRow
           store={JSON.stringify(store)}
           key={store.storeID}
-          action={this.props.action} />
+          action={props.action} />
         )
       })
     }
 
     return (
     <div>
-      <span>MarketPlace Balance Held: {this.props.contractBal.toString()} (wei)</span>
+      <span>MarketPlace Balance Held: {props.contractBal.toString()} (wei)</span>
       <table className="table">
         <thead className="table-primary">
           <tr>
@@ -51,7 +51,7 @@ class AdmPayStore extends Component {
           </tr>
         </thead>
         <tbody>
-          { this.props.stores.length !== 0
+          { props.stores.length !== 0
             ?  rows
             :
                <tr>
@@ -66,7 +66,6 @@ class AdmPayStore extends Component {
       </table>
     </div>
     )
-  }
 }
 
 export default AdmPayStore

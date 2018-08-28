@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 //import '../css/pure-min.css'
 
-class StrItemGridRow extends Component {
-  render() {
+//class StrItemGridRow extends Component {
+//  render() {}
+function StrItemGridRow (props) {
     //console.log('StrItemGridRow')
-    const sku = JSON.parse(this.props.sku)
+    const sku = JSON.parse(props.sku)
 
     return(
         <div className="col-sm-4">
@@ -15,26 +16,25 @@ class StrItemGridRow extends Component {
                     <span>Quantity Left: {sku.quantity}</span><br/>
                     <span>Price (wei): {sku.price}</span><br/>
                     <span>Discount %: {sku.discount}</span><br/>
-                    <a className="btn btn-light" onClick={(e) => this.props.actionEdit(sku.sku)}>Edit</a>
+                    <a className="btn btn-light" onClick={(e) => props.actionEdit(sku.sku)}>Edit</a>
                 </div>
             </div>
         </div>
     )
-  }
 }
 
-class StrItemGrid extends Component {
-
-    render() {
+//class StrItemGrid extends Component {
+//    render() {
+function StrItemGrid (props) {
       const rows = []
-      if (this.props.skus.length !== 0) {
-        this.props.skus.forEach((sku) => {
+      if (props.skus.length !== 0) {
+          props.skus.forEach((sku) => {
           //console.log('Filling rows ' + sku)
           rows.push(
             <StrItemGridRow
             sku={JSON.stringify(sku)}
             key={sku.sku}
-            actionEdit={this.props.actionEdit} />
+            actionEdit={props.actionEdit} />
           )
         })
 
@@ -44,31 +44,28 @@ class StrItemGrid extends Component {
 
       return (
 
-      <div>
+          <div>
+              <span>Listings Of:
+              {props.storeOwner === null
+                ? <span></span>
+                : <span> {props.storeOwner.busTitle} / {props.store.title}</span>
+              }
 
-          <span>Listings Of:
-          {this.props.storeOwner === null
-            ? <span></span>
-            : <span> {this.props.storeOwner.busTitle} / {this.props.store.title}</span>
-          }
+              </span>
+            <div className="row">
 
-          </span>
-        <div className="row">
-
-            {this.props.skus.length !== 0
-              ? rows
-              : <p>No Listings Yet...</p>
-            }
+                {props.skus.length !== 0
+                  ? rows
+                  : <p>No Listings Yet...</p>
+                }
 
 
-        </div>
-        <br/>
-        <br/>
-        <button className="btn btn-primary" onClick={this.props.actionAdd}>List New Item</button>
-      </div>
-
+            </div>
+            <br/>
+            <br/>
+            <button className="btn btn-primary" onClick={props.actionAdd}>List New Item</button>
+          </div>
       )
-    }
   }
 
   export default StrItemGrid
