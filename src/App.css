@@ -34,7 +34,12 @@ code {
   border-color: #0c1a2b;
 }
 
-/* NAVBAR */
+
+.navbar {
+  font-family: 'Oswald', 'Arial Narrow', sans-serif;
+}
+
+/* NAVBAR
 
 .navbar {
   position: fixed;
@@ -42,6 +47,7 @@ code {
   background: #0c1a2b;
   font-family: 'Oswald', 'Arial Narrow', sans-serif;
 }
+
 
 .navbar a {
   color: #fff;
@@ -66,3 +72,4 @@ code {
   height: 16px;
   margin-right: 10px;
 }
+*/

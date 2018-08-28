@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/pure-min.css'
+//import '../css/pure-min.css'
 
 class AdmPayStoreRow extends Component {
   render() {
@@ -12,7 +12,7 @@ class AdmPayStoreRow extends Component {
           <td>{store.title}</td>
           <td>{store.storeBal}</td>
           <td><button
-            className="pure-button"
+            className="btn btn-secondary"
             onClick={() => this.props.action(store.storeID)}>Pay</button></td>
         </tr>
     )
@@ -40,14 +40,14 @@ class AdmPayStore extends Component {
     return (
     <div>
       <span>MarketPlace Balance Held: {this.props.contractBal.toString()} (wei)</span>
-      <table className="pure-table pure-table-horizontal">
-        <thead>
+      <table className="table">
+        <thead className="table-primary">
           <tr>
-            <th>Store Owner</th>
-            <th>Store ID</th>
-            <th>Store Name</th>
-            <th>Pending Balance (wei)</th>
-            <th>Payout</th>
+            <th scope="col">Store Owner</th>
+            <th scope="col">Store ID</th>
+            <th scope="col">Store Name</th>
+            <th scope="col">Pending Balance (wei)</th>
+            <th scope="col">Payout</th>
           </tr>
         </thead>
         <tbody>
@@ -55,11 +55,11 @@ class AdmPayStore extends Component {
             ?  rows
             :
                <tr>
-                 <td>None</td>
-                 <td>None</td>
-                 <td>None</td>
-                 <td>None</td>
-                 <td>None</td>
+                 <td scope="col">None</td>
+                 <td scope="col">None</td>
+                 <td scope="col">None</td>
+                 <td scope="col">None</td>
+                 <td scope="col">None</td>
                </tr>
         }
         </tbody>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/pure-min.css'
+//import '../css/pure-min.css'
 
 class StrStoreGridRow extends Component {
   render() {
@@ -7,11 +7,20 @@ class StrStoreGridRow extends Component {
     const store = JSON.parse(this.props.store)
 
     return(
-        <div className="pure-u-1 pure-u-md-1-3 pure-u-xl-1-4">
-          <h3>{store.title}</h3>
-          <img className="pure-img" src={`https://ipfs.io/ipfs/${store.imgIPFS}`} alt={`Image for ${store.title}`}/>
-          <button className="pure-button" onClick={(e) => this.props.action(store.storeID)}>More</button>
-          <button className="pure-button" onClick={(e) => this.props.actionEdit(store.storeID)}>Edit</button>
+        <div className="col-sm-4">
+          <div className="card text-center">
+            <h5 className="card-header">{store.title}</h5>
+            <div className="card-body">
+                <img className="card-img-top" src={`https://ipfs.io/ipfs/${store.imgIPFS}`} alt={`Image for ${store.title}`}/>
+            </div>
+
+            <div>
+              <a className="btn btn-light" onClick={(e) => this.props.action(store.storeID)}>Browse</a>
+              <span> </span>
+              <a className="btn btn-light" onClick={(e) => this.props.actionEdit(store.storeID)}>Edit</a>
+            </div>
+
+          </div>
         </div>
     )
   }
@@ -20,6 +29,7 @@ class StrStoreGridRow extends Component {
 class StrStoreGrid extends Component {
 
     render() {
+
       const rows = []
       if (this.props.stores.length !== 0) {
         this.props.stores.forEach((store) => {
@@ -32,7 +42,6 @@ class StrStoreGrid extends Component {
             actionEdit={this.props.actionEdit}/>
           )
         })
-
       }
       //console.log(this.props.storeOwner)
       //console.log(this.props.stores.length)
@@ -40,30 +49,29 @@ class StrStoreGrid extends Component {
       return (
 
       <div>
-        <div className="pure-g">
-          <span className="pure-u-1">Stores Of:
+        <div>
+          <span >Stores Of:
           {this.props.storeOwner === null
             ? <span></span>
             : <span> {this.props.storeOwner.busTitle}</span>
           }
           </span>
         </div>
-        <div id='store-row'>
-          <div className="pure-g pure-u-1">
+
+        <div className="row">
+
             {this.props.stores.length !== 0
               ? rows
               : <p>No Stores Yet...</p>
             }
-          </div>
 
         </div>
         <br/>
-        <br/>
-        <button className="pure-button" onClick={this.props.actionAdd}>Add Store</button>
+        <button className="btn btn-primary" onClick={this.props.actionAdd}>Add Store</button>
       </div>
-
       )
-    }
-  }
+   }
+}
 
-  export default StrStoreGrid
+
+export default StrStoreGrid

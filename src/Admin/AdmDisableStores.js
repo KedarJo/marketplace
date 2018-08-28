@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/pure-min.css'
+//import '../css/pure-min.css'
 
 class AdmDisableStoreRow extends Component {
   render() {
@@ -12,7 +12,7 @@ class AdmDisableStoreRow extends Component {
           <td>{account.govID}</td>
           <td>{account.numStores}</td>
           <td><button
-            className="pure-button"
+            className="btn btn-secondary"
             onClick={() => this.props.action(account.acct)}>Disable</button></td>
         </tr>
     )
@@ -38,14 +38,14 @@ class AdmDisableStores extends Component {
     }
 
     return (
-      <table className="pure-table pure-table-horizontal">
-        <thead>
+      <table className="table">
+        <thead className="table-primary">
           <tr>
-            <th>ID#</th>
-            <th>Business Title</th>
-            <th>Government ID</th>
-            <th>Stores</th>
-            <th>Disable</th>
+            <th scope="col">ID#</th>
+            <th scope="col">Business Title</th>
+            <th scope="col">Government ID</th>
+            <th scope="col">Stores</th>
+            <th scope="col">Disable</th>
           </tr>
         </thead>
         <tbody>
@@ -53,11 +53,11 @@ class AdmDisableStores extends Component {
             ?  rows
              :
                <tr>
-                 <td>None</td>
-                 <td>None</td>
-                 <td>None</td>
-                 <td>None</td>
-                 <td>None</td>
+                 <td scope="col">None</td>
+                 <td scope="col">None</td>
+                 <td scope="col">None</td>
+                 <td scope="col">None</td>
+                 <td scope="col">None</td>
                </tr>
         }
         </tbody>

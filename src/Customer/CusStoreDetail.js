@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import CusItemGrid from './CusItemGrid'
-import '../css/pure-min.css'
+//import '../css/pure-min.css'
 
 
 class CusStoreDetail extends Component {
 
     render() {
       return (
-        <div className="pure-g pure-u-1 pure-u-md-1-3 pure-u-xl-1-4">
+        <div>
           <h2>{this.props.store.title}</h2>
 
           <br/>

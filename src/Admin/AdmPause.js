@@ -8,10 +8,10 @@ class AdmPause extends Component {
       <div>
       {this.props.paused
         ? <button
-          className="pure-button"
+          className="btn btn-primary"
           onClick={() => this.props.action()}>Unpause Contract</button>
         : <button
-          className="pure-button"
+          className="btn btn-primary"
           onClick={() => this.props.action()}>Pause Contract</button>
       }
       </div>

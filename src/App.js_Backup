@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
 import MarketPlaceContract from '../build/contracts/MarketPlace.json'
 import getWeb3 from './utils/getWeb3'
 
@@ -27,9 +26,7 @@ import StrItemGrid from './Storeowner/StrItemGrid'
 
 import './css/oswald.css'
 import './css/open-sans.css'
-//import './css/bootstrap.min.css'
-//import './css/bootstrap.min.css.map'
-//import './css/pure-min.css'
+import './css/pure-min.css'
 import './App.css'
 
 class App extends Component {
@@ -1089,28 +1086,28 @@ class App extends Component {
     //console.log('render() ')
     return (
       <div className="App">
-        <header>
+        <header >
+         {this.state.admin || this.state.superuser
+           ? <AdmNav admin={this.state.admin} setCurrent={this.admNavCurrent}/>
+           : <p></p>
+         }
 
-             {this.state.admin || this.state.superuser
-               ? <AdmNav admin={this.state.admin} setCurrent={this.admNavCurrent}/>
-               : <p></p>
-             }
+         {this.state.storeowner
+           ? <StrNav setCurrent={this.strNavCurrent}/>
+           : <p></p>
+         }
 
-             {this.state.storeowner
-               ? <StrNav setCurrent={this.strNavCurrent}/>
-               : <p></p>
-             }
-
-             {!(this.state.admin || this.state.superuser || this.state.storeowner)
-               ? <CusNav setCurrent={this.cusNavCurrent}/>
-               : <p></p>
-             }
-             
+         {!(this.state.admin || this.state.superuser || this.state.storeowner)
+           ? <CusNav setCurrent={this.cusNavCurrent}/>
+           : <p></p>
+         }
          </header>
          <main className="container">
-
+           <div className="pure-g">
+             <div className="pure-u-1-1">
               <h1>Marketplace</h1>
-
+             </div>
+             <div className="pure-u-1-1">
              {this.state.paused
                ? <span>The contract operations are currently suspended. Payment functions will be disabled</span>
                : <span></span>
@@ -1246,21 +1243,13 @@ class App extends Component {
                   action={this.handleRegistration} />
                 : <p></p>
               }
-
+             </div>
+           </div>
          </main>
       </div>
 
     );
   }
 }
-
-/*
-<div className="pure-g">
-  <div className="pure-u-1-1">
-  </div>
-  <div className="pure-u-1-1">
-  </div>
-</div>
-*/
 
 export default App

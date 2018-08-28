@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/pure-min.css'
+//import '../css/pure-min.css'
 
 import ipfs from '../ipfs'
 
@@ -64,32 +64,30 @@ class StrEditStoreItem extends Component {
   }
 
   render() {
-    console.log('render/return')
+    // console.log('render/return')
     return (
       <form
-        className="pure-form pure-form-aligned"
         id="StoreFront"
         onSubmit={this.handleSubmit}
       >
-        <fieldset>
-          <legend>{this.props.storeOwner.busTitle} / {this.props.store.title} / Maintain Item Info</legend>
+          <h3>{this.props.storeOwner.busTitle} / {this.props.store.title} / Maintain Item Info</h3>
           <img src={`https://ipfs.io/ipfs/${this.props.sku.imgIPFS}`} alt="" />
-          <div className="pure-control-group">
+          <div className="form-group">
               <label htmlFor="skuTitle">Change Item Name:</label>
               <input
-              id="skuTitle" type="text" placeholder={this.props.sku.title} className="pure-input-1-3"
+              id="skuTitle" type="text" placeholder={this.props.sku.title} className="form-control"
               ref={(input) => this.state.skuTitle=input}></input>
           </div>
-          <div className="pure-control-group">
+          <div className="form-group">
               <label htmlFor="skuPrice">New Item Price (Wei):</label>
               <input
-              id="skuPrice" type="number" placeholder={this.props.sku.price} className="pure-input-1-3"
+              id="skuPrice" type="number" placeholder={this.props.sku.price} className="form-control"
               ref={(input) => this.state.skuPrice=input}></input>
           </div>
-          <div className="pure-control-group">
+          <div className="form-group">
               <label htmlFor="skuDiscount">New Discount %:</label>
               <select
-              id="skuDiscount" type="number" className="pure-input-1-3"
+              id="skuDiscount" type="number" className="form-control"
               ref={(input) => this.state.skuDiscount=input}>
                 <option>0</option>
                 <option>10</option>
@@ -104,23 +102,20 @@ class StrEditStoreItem extends Component {
                 <option>100</option>
               </select>
           </div>
-          <div className="pure-control-group">
+          <div className="form-group">
               <label htmlFor="skuQty">Qty:</label>
               <input
-              id="skuQty" type="number" placeholder={this.props.sku.quantity} className="pure-input-1-3"
+              id="skuQty" type="number" placeholder={this.props.sku.quantity} className="form-control"
               ref={(input) => this.state.skuQty=input}></input>
           </div>
-          <div className="pure-control-group">
+          <div className="form-group">
               <label htmlFor="imgUpload">New Hero Image for Item</label>
               <input
               id="imgUpload" type="file"
               onChange={this.captureFile}></input>
 
           </div>
-          <div className="pure-controls">
-            <button type="submit" className="pure-button">Update Listing</button>
-          </div>
-        </fieldset>
+          <button type="submit" className="btn btn-primary">Update Listing</button>
       </form>
     )
   }

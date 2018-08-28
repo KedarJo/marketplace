@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/pure-min.css'
+//import '../css/pure-min.css'
 
 /*
 */
@@ -16,15 +16,14 @@ class CusItemDetail extends Component {
 
       return (
         <form
-          className="pure-form pure-form-aligned"
           id="customerPurchase"
           onSubmit={(event) => {
             event.preventDefault()
             this.props.action(this.quantity.value)
           }}>
-          <fieldset>
-            <legend><h3>{this.props.sku.title}</h3></legend>
-            <div className="pure-g pure-u-1 pure-u-md-1-3">
+
+            <h3>{this.props.sku.title}</h3>
+            <div className="form-group">
               <span>Sold By {this.props.sku.storeOwner}, Store ID# {skuStoreID} </span><br/>
               <img src={`https://ipfs.io/ipfs/${this.props.sku.imgIPFS}`} className="pure-img" />
             </div>
@@ -33,18 +32,18 @@ class CusItemDetail extends Component {
               :  <span></span>
             }
             <br/>
-            <div className="pure-control-group">
+            <div className="form-group">
               <label htmlFor='skuPrice'>Price: </label>
               <span id='skuPrice'>{skuPrice} wei</span>
             </div>
-            <div className="pure-control-group">
+            <div className="form-group">
               <label htmlFor='skuDiscount'>Discount: </label>
               <span id='skuDiscount'>{skuDiscount} % </span>
             </div>
-            <div className="pure-control-group">
+            <div className="form-group">
                 <label htmlFor="SelectQuantity">Qty</label>
                 <select
-                id="SelectQuantity" className="pure-input-1-2"
+                id="SelectQuantity" className="form-control"
                 ref={(input) => this.quantity=input}>
                     <option>1</option>
                     <option>2</option>
@@ -53,14 +52,11 @@ class CusItemDetail extends Component {
                     <option>5</option>
                 </select>
             </div>
-            <div className="pure-control-group">
+            <div className="form-group">
               <label htmlFor='skuTotal'>Total: </label>
               <span id='skuTotal'>Ensure sufficient funds before purchase</span>
             </div>
-            <div className="pure-controls">
-              <button type="submit" className="pure-button">Buy</button>
-            </div>
-          </fieldset>
+            <button type="submit" className="btn btn-primary">Buy</button>
         </form>
       )
     }

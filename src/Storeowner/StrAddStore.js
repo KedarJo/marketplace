@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/pure-min.css'
+//import '../css/pure-min.css'
 
 import ipfs from '../ipfs'
 
@@ -48,30 +48,26 @@ class StrAddStore extends Component {
     //console.log('render')
     return (
       <form
-        className="pure-form pure-form-aligned"
         id="StoreFront"
         onSubmit={this.handleSubmit}
       >
-        <fieldset>
-          <legend>Store Info</legend>
+
+          <h3>Store Info</h3>
           <img src={`https://ipfs.io/ipfs/${this.state.IPFSHash}`} alt="" />
-          <div className="pure-control-group">
+          <div className="form-group">
               <label htmlFor="strTitle">Store Name</label>
               <input
-              id="strTitle" type="text" placeholder="Store Name" className="pure-input-1-3"
+              id="strTitle" type="text" placeholder="Store Name" className="form-control"
               ref={(input) => this.state.strTitle=input}></input>
           </div>
-          <div className="pure-control-group">
-              <label htmlFor="imgUpload">Hero Image for Store Front</label>
+          <div className="form-group">
+              <label htmlFor="imgUpload">Hero Image for Store Front </label>
               <input
               id="imgUpload" type="file"
               onChange={this.captureFile}></input>
 
           </div>
-          <div className="pure-controls">
-            <button type="submit" className="pure-button">Submit Request</button>
-          </div>
-        </fieldset>
+          <button type="submit" className="btn btn-primary">Submit Request</button>
       </form>
     )
   }

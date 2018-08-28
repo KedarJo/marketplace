@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/pure-min.css'
+//import '../css/pure-min.css'
 
 import ipfs from '../ipfs'
 
@@ -55,29 +55,28 @@ class StrAddStoreItem extends Component {
     //console.log('render')
     return (
       <form
-        className="pure-form pure-form-aligned"
         id="StoreFront"
         onSubmit={this.handleSubmit}
       >
-        <fieldset>
-          <legend>{this.props.storeOwner.busTitle} / {this.props.store.title} / New Item Info</legend>
+
+          <h3>{this.props.storeOwner.busTitle} / {this.props.store.title} / New Item Info</h3>
           <img src={`https://ipfs.io/ipfs/${this.state.IPFSHash}`} alt="" />
-          <div className="pure-control-group">
+          <div className="form-group">
               <label htmlFor="skuTitle">Item Name:</label>
               <input
-              id="skuTitle" type="text" placeholder="Item Name" className="pure-input-1-3"
+              id="skuTitle" type="text" placeholder="Item Name" className="form-control"
               ref={(input) => this.state.skuTitle=input}></input>
           </div>
-          <div className="pure-control-group">
+          <div className="form-group">
               <label htmlFor="skuPrice">Item Price (Wei):</label>
               <input
-              id="skuPrice" type="number" placeholder='1000000' className="pure-input-1-3"
+              id="skuPrice" type="number" placeholder='1000000' className="form-control"
               ref={(input) => this.state.skuPrice=input}></input>
           </div>
-          <div className="pure-control-group">
+          <div className="form-group">
               <label htmlFor="skuDiscount">Discount %:</label>
               <select
-              id="skuDiscount" type="number" className="pure-input-1-3"
+              id="skuDiscount" type="number" className="form-control"
               ref={(input) => this.state.skuDiscount=input}>
                 <option>0</option>
                 <option>10</option>
@@ -93,23 +92,22 @@ class StrAddStoreItem extends Component {
 
               </select>
           </div>
-          <div className="pure-control-group">
+          <div className="form-group">
               <label htmlFor="skuQty">Qty:</label>
               <input
-              id="skuQty" type="number" placeholder='100' className="pure-input-1-3"
+              id="skuQty" type="number" placeholder='100' className="form-control"
               ref={(input) => this.state.skuQty=input}></input>
           </div>
-          <div className="pure-control-group">
-              <label htmlFor="imgUpload">Hero Image for Item</label>
+          <div className="form-group">
+              <label htmlFor="imgUpload">Hero Image for Item </label>
               <input
               id="imgUpload" type="file"
               onChange={this.captureFile}></input>
 
           </div>
-          <div className="pure-controls">
-            <button type="submit" className="pure-button">Add Listing</button>
-          </div>
-        </fieldset>
+
+          <button type="submit" className="btn btn-primary">Add Listing</button>
+
       </form>
     )
   }

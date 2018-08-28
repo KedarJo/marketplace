@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/pure-min.css'
+// import '../css/pure-min.css'
 
 
 class CusItemGridRow extends Component {
@@ -8,12 +8,16 @@ class CusItemGridRow extends Component {
     const sku = JSON.parse(this.props.sku)
 
     return(
-        <div className="pure-u-1 pure-u-md-1-3 pure-u-xl-1-4">
-          <h3>{sku.title}</h3>
-          <img className="pure-img" src={`https://ipfs.io/ipfs/${sku.imgIPFS}`} alt={`Image for ${sku.title}`}/>
-          <span>Price (wei): {sku.price}</span><br/>
-          <span>Discount %: {sku.discount}</span><br/>
-          <button className="pure-button" onClick={(e) => this.props.action(sku.sku)}>More</button>
+        <div className="col-sm-4">
+            <div className="card text-center">
+              <h5 className="card-header">{sku.title}</h5>
+              <div className="card-body">
+                  <img className="card-img-top" src={`https://ipfs.io/ipfs/${sku.imgIPFS}`} alt={`Image for ${sku.title}`}/>
+                  <span>Price (wei): {sku.price}</span><br/>
+                  <span>Discount %: {sku.discount}</span><br/>
+                  <button className="btn btn-light" onClick={(e) => this.props.action(sku.sku)}>Details</button>
+              </div>
+            </div>
         </div>
     )
   }
@@ -36,13 +40,15 @@ class CusItemGrid extends Component {
       }
 
       return (
-        <div id='item-row'>
-          <div className="pure-g">
+        <div className='container'>
+        <div className='row'>
+
           {this.props.skus.length !== 0
             ? rows
             :<p></p>
           }
-          </div>
+
+        </div>
         </div>
 
       )

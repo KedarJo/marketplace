@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import '../css/pure-min.css'
+//import '../css/pure-min.css'
 
 import ipfs from '../ipfs'
 
@@ -52,30 +52,27 @@ class StrEditStore extends Component {
     //console.log('render')
     return (
       <form
-        className="pure-form pure-form-aligned"
         id="StoreFront"
         onSubmit={this.handleSubmit}
       >
-        <fieldset>
-          <legend>Edit Store Info</legend>
+
+          <h3>Edit Store Info</h3>
           <img src={`https://ipfs.io/ipfs/${this.props.store.imgIPFS}`} alt="" />
-          <div className="pure-control-group">
+          <div className="form-group">
               <label htmlFor="strTitle">New Store Name</label>
               <input
-              id="strTitle" type="text" placeholder={this.props.store.title} className="pure-input-1-3"
+              id="strTitle" type="text" placeholder={this.props.store.title} className="form-control"
               ref={(input) => this.state.strTitle=input}></input>
           </div>
-          <div className="pure-control-group">
+          <div className="form-group">
               <label htmlFor="imgUpload">Change Hero Image for Store Front</label>
               <input
               id="imgUpload" type="file"
               onChange={this.captureFile}></input>
 
           </div>
-          <div className="pure-controls">
-            <button type="submit" className="pure-button">Apply Changes</button>
-          </div>
-        </fieldset>
+
+          <button type="submit" className="btn btn-primary">Apply Changes</button>
       </form>
     )
   }
