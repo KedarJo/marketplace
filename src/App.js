@@ -702,7 +702,7 @@ class App extends Component {
         Promise.all([getDetail, getDetail2])
           .then((detail) => {
             //console.log('Promise.all([getDetail, getDetail2]) ')
-            if (detail !== null)
+            if (detail[0][0] !== 'SKIP') {
               detail1 = detail[0]
               detail2 = detail[1]
               skus.push({ sku: result[i],
@@ -715,7 +715,10 @@ class App extends Component {
                           storeOwner: detail2[0],
                           storeID: detail2[1]
                           })
-            this.setState({skus: skus, strMenu: "stateUpdate", cusMenu: 'stateUpdate'})
+
+             this.setState({skus: skus, strMenu: "stateUpdate", cusMenu: 'stateUpdate'})
+            }
+
         })
           .catch((err) => {
             console.log('err: getSkusByStoreID > getItemsBySku | getItemsOwner > ' + result[i].toString() + ' failed')
@@ -739,7 +742,8 @@ class App extends Component {
     window.setTimeout(()=>{
       //console.log('setTimeout')
       for(let i=0; i < this.state.stores.length; i++) {
-        if (this.state.stores[i].storeID == _storeID) {
+        console.log(this.state.stores[i])
+        if (this.state.stores[i].storeID == _storeID && this.state.stores[i].title !== 'SKIP') {
             store = {
               storeID: _storeID,
               storeOwner: this.state.stores[i].storeOwner,
