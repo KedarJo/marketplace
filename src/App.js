@@ -404,15 +404,15 @@ class App extends Component {
      getStores
        .then((result) => {
        //console.log(result.length)
-       if (result.length === 0) {
+       if (result === 0) {
          stores = []
          console.log('No stores found')
        }
-       for (let i = 0; i < result.length; i++) {
-         let storeID = result[i]
+       for (let i = 0; i < result; i++) {
+         let storeID = i+1
          //console.log('storeID#' + i + storeID)
 
-         if (storeID != 0 ) { //remove this later
+         //if (storeID != 0 ) { //remove this later
 
          let getDetail = new Promise((resolve, reject) => {
            detail = contract.getStoreById(storeID, {from: this.state.account});
@@ -422,20 +422,22 @@ class App extends Component {
          getDetail
            .then((detail) => {
              //console.log(detail)
-           stores.push({ storeID: storeID,
-                         storeOwner: detail[0],
-                         title: detail[1],
-                         imgIPFS: detail[2],
-                         storeBal: detail[3],
-                         numItems: detail[4] })
-           this.setState({stores: stores})
+           if (detail[1] !== 'SKIP') {
+             stores.push({ storeID: storeID,
+                           storeOwner: detail[0],
+                           title: detail[1],
+                           imgIPFS: detail[2],
+                           storeBal: detail[3],
+                           numItems: detail[4] })
+             this.setState({stores: stores})
+           }
          })
            .catch((err) => {
              console.log('err: getStores>getStoreById> ' + storeID.toString() + ' failed')
              console.log(err)
            })
 
-         } // If end // TODO: Change the smart contract logic to send skucount and check enable flag here
+         //} // If end // TODO: Change the smart contract logic to send skucount and check enable flag here
 
        }
 
@@ -636,7 +638,7 @@ class App extends Component {
         Promise.all([getDetail, getDetail2])
           .then((detail) => {
             //console.log(detail[0])
-            if (detail[0][0] != "") {
+            if (detail[0][0] !== 'SKIP') {
               detail1 = detail[0]
               detail2 = detail[1]
 
@@ -1105,7 +1107,7 @@ class App extends Component {
                ? <CusNav setCurrent={this.cusNavCurrent}/>
                : <p></p>
              }
-             
+
          </header>
          <main className="container">
 

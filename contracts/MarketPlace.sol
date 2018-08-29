@@ -162,20 +162,24 @@ contract MarketPlace is MarketStorage, MarketRBAC {
     public
     view
     returns (address, string, string, uint, uint) {
-      require(stores[_storeID].enabled == true);
-      if (msg.sender == stores[_storeID].storeOwner || isAdmin(msg.sender) || isSuperuser(msg.sender)) {
-        return (stores[_storeID].storeOwner,
-                stores[_storeID].title,
-                stores[_storeID].imgIPFS,
-                stores[_storeID].storeBal,
-                stores[_storeID].numItems);
+      if (stores[_storeID].enabled == true) {
+        if (msg.sender == stores[_storeID].storeOwner || isAdmin(msg.sender) || isSuperuser(msg.sender)) {
+          return (stores[_storeID].storeOwner,
+                  stores[_storeID].title,
+                  stores[_storeID].imgIPFS,
+                  stores[_storeID].storeBal,
+                  stores[_storeID].numItems);
+        } else {
+          return (stores[_storeID].storeOwner,
+                  stores[_storeID].title,
+                  stores[_storeID].imgIPFS,
+                  0,
+                  stores[_storeID].numItems);
+        }
       } else {
-        return (stores[_storeID].storeOwner,
-                stores[_storeID].title,
-                stores[_storeID].imgIPFS,
-                0,
-                stores[_storeID].numItems);
+        return (address(0), 'SKIP', 'SKIP', 0, 0);
       }
+
   }
   /**
     * @dev getter for store IDs belonging to owner. This needs to be followed by calls to getStoreById
@@ -189,18 +193,15 @@ contract MarketPlace is MarketStorage, MarketRBAC {
       return storeIDs[_storeOwner];
   }
   /**
-    * @dev getter for customers. Customers do not see diabled stores from owners with revoked access
+    * @dev getter for customers.
+    * Customers should not see diabled stores from owners with revoked access. Handled that in getStoreById
     * This should be followed by getStoreById calls to get the details of each
     */
   function getAllStores()
     public
     view
-    returns (uint []) {
-      uint[] activeStores;
-      for (uint i = 0; i <= storeCount; i++) {
-        if (stores[i].enabled == true) {activeStores.push(i);}
-      }
-      return activeStores;
+    returns (uint) {
+      return storeCount;
   }/**
    * @dev Approved storeowner can add new item to their stores
    */
@@ -252,13 +253,15 @@ contract MarketPlace is MarketStorage, MarketRBAC {
     public
     view
     returns (string, string, string, uint, uint8, uint) {
-      if (items[_sku].enabled == true || items[_sku].storeOwner == msg.sender){
+      if (items[_sku].enabled == true || (isStoreowner(msg.sender) && items[_sku].storeOwner == msg.sender)){
         return (items[_sku].title,
                 items[_sku].imgIPFS,
                 items[_sku].descIPFS,
                 items[_sku].price,
                 items[_sku].discount,
                 items[_sku].quantity);
+      } else {
+        return ('SKIP', 'SKIP', 'SKIP', 0, 0, 0);
       }
     }
     /**

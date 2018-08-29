@@ -14,8 +14,8 @@ function StrStoreGridRow (props) {
             <div className="card-body">
                 <img className="card-img-top" src={`https://ipfs.io/ipfs/${store.imgIPFS}`} alt={`Image for ${store.title}`}/>
             </div>
-
             <div>
+              <span>Store Balance: {store.storeBal} (wei)</span><br />
               <a className="btn btn-light" onClick={(e) => props.action(store.storeID)}>Browse</a>
               <span> </span>
               <a className="btn btn-light" onClick={(e) => props.actionEdit(store.storeID)}>Edit</a>

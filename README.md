@@ -2,17 +2,21 @@ MarketPlace - Contract to support decentralized marketplace
 ===========================================================
 
 Please refer to the [Wiki](https://github.com/KedarJo/marketplace/wiki) for supported use cases.
-Please refer to the [Steps to Follow](https://github.com/KedarJo/marketplace/wiki/Steps-for-running-application) as step-by-step guide 
+Please refer to the [Steps to Follow](https://github.com/KedarJo/marketplace/wiki/Steps-for-running-application) as step-by-step guide
 
-**Local instance**
+**Configuring local instance**
 
-The project is built from React Truffle Box and inherits all node and css dependencies. The emphasis is to built UI sufficient to support use cases to test out the contract. Works best with Chrome.
+The project is built from React Truffle Box and inherits all node and css dependencies. The emphasis is to build UI sufficient to support use cases to test out the contract. Works best with Chrome.
 
 1. Build a new project folder for MarketPlace
+```
+$ mkdir MarketPlace
+$ cd MarketPlace
+```
 2. Download the React Truffle Box: [React Box](https://truffleframework.com/boxes/react)
 3. This also has instruction for Truffle installation (if required) and unboxing
 4. Remove the base Storage contract and the associated test solidity files
-5. Clone this repository into a temp repository
+5. Clone this repository into a temp local folder
 ```
 $ git clone https://github.com/KedarJo/marketplace
 ```
@@ -59,12 +63,12 @@ Hosting completely from IPFS
 
 A couple of things to be taken care of  
 
-1. Default Webpack optimizer uses UglifyJsPlugin that does not support ES6 and build script fails when parsing ipfs-api use of arrow function, since they are introduced with ES6. For now, we will have to disable minification by commenting out below lines in "config/webpack.config.prod.js". (The right way to do this is to find solution to override UglifyJsPlugin)
+1. Default Webpack optimizer uses UglifyJsPlugin that does not support ES6 and build script fails when parsing ipfs-api use of arrow function, since they are introduced with ES6. For now, we will have to disable minification by commenting out below lines in "config/webpack.config.prod.js". (This is a hack for now. The right way to do this is to find solution to override UglifyJsPlugin)
 ```
 new webpack.optimize.UglifyJsPlugin({
 ...
 ...
-..
+...
 })
 ```
 
@@ -95,6 +99,6 @@ $ ipfs name publish <ipfs hash of build_webpack>
 
 ---
 
-Note: WIP for deploying to Rinkeby.  This file will be updated as this is made available.
+Note: WIP for deploying to Rinkeby testnet.  Updates to README and repo will be posted when ready.
 
 ---

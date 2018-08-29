@@ -46,3 +46,24 @@ The creator/owner has a lot of power as the store owner is not paid right away a
 Off-chain safety
 ----------------
 Off chain functionality is pretty basic at the moment to allow testing various scenarios and no safety standards are implemented
+
+Security Analysis using mythril @ https://github.com/ConsenSys/mythril/
+=======================================================================
+```
+$ myth -x MarketStorage.sol
+```
+The analysis was completed successfully. No issues were detected.
+
+```
+$ myth -x MarketRBAC.sol
+```
+A possible integer overflow was found at two places in RBAC.sol, which is an open Zeppelin contract. The risk is considered acceptable and no action taken
+
+```
+$ myth -x MarketPlace.sol
+```
+Apart from 2 warnings of Integer Overflow at below functions there were no vulnerabilities reported
+registerAsStoreowner(string,string)
+maintainItem(uint256,string,string,string,uint256,uint8,uint256)
+
+The contract currently does not set upper bound on how many store owners, stores or items it can support. Currently not making any changes.
