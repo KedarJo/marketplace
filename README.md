@@ -49,7 +49,9 @@ Test files have description of what they test. Certain tests are designed to fai
 Running a local instance
 ------------------------
 
-Start local npm server to access contract with React GUI
+1. Import your ganache-cli seed in MetaMask and configure at least 3 accounts
+
+2. Start local npm server to access contract with React GUI
 ```
 $ npm run start
 ```
@@ -94,7 +96,7 @@ $ ipfs add -r build_webpack/
 $ ipfs name publish <ipfs hash of build_webpack>
 ```
 
-6. Once the publish is successful (usually takes a few secs) access application https://gateway.ipfs.io/ipfs/ <ipfs hash of build_webpack>
+6. Once the publish is successful (usually takes a few secs) access application https://gateway.ipfs.io/ipfs/<ipfs hash of build_webpack>
 
 
 ---
